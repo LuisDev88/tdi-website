@@ -1,5 +1,18 @@
 import React, { useState } from 'react';
-import { Calendar, Clock, Star, CheckCircle, CreditCard, User, Sparkles, Scissors, ShieldCheck, ChevronRight } from 'lucide-react';
+import { 
+  Car, 
+  Droplets, 
+  Calendar, 
+  Clock, 
+  Star, 
+  CheckCircle, 
+  CreditCard, 
+  User, 
+  Sparkles, 
+  ShieldCheck, 
+  MapPin,
+  Gauge
+} from 'lucide-react';
 
 export const PhoneMockup: React.FC<{ interactive?: boolean }> = ({ interactive = true }) => {
   const [activeTab, setActiveTab] = useState<'booking' | 'dashboard' | 'payment'>('booking');
@@ -34,18 +47,18 @@ export const PhoneMockup: React.FC<{ interactive?: boolean }> = ({ interactive =
           {/* App Header */}
           <div className="px-5 pt-3 pb-3 bg-white border-b border-orange-100 flex items-center justify-between shadow-2xs">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#FFA42D] to-[#F06A14] flex items-center justify-center text-white shadow-sm">
-                <Scissors className="w-4 h-4 text-black" />
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#FFA42D] to-[#F06A14] flex items-center justify-center text-black shadow-sm">
+                <Car className="w-4 h-4 text-black" />
               </div>
               <div>
                 <span className="font-extrabold text-sm tracking-tight text-black flex items-center gap-1">
-                  TechDhab <span className="text-[10px] font-bold px-1.5 py-0.2 bg-[#FFA42D]/20 text-[#D97706] rounded-full">App</span>
+                  TechDhab <span className="text-[10px] font-bold px-1.5 py-0.2 bg-[#FFA42D]/20 text-[#D97706] rounded-full">AutoWash</span>
                 </span>
-                <p className="text-[10px] text-gray-500">Business & Bookings</p>
+                <p className="text-[10px] text-gray-500">Car Wash & Detailing App</p>
               </div>
             </div>
             <div className="w-7 h-7 rounded-full bg-orange-50 flex items-center justify-center text-[#FFA42D] border border-orange-200">
-              <Sparkles className="w-3.5 h-3.5" />
+              <Droplets className="w-3.5 h-3.5" />
             </div>
           </div>
 
@@ -60,7 +73,7 @@ export const PhoneMockup: React.FC<{ interactive?: boolean }> = ({ interactive =
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                 }`}
               >
-                Booking Flow
+                Wash Booking
               </button>
               <button
                 onClick={() => setActiveTab('dashboard')}
@@ -70,7 +83,7 @@ export const PhoneMockup: React.FC<{ interactive?: boolean }> = ({ interactive =
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                 }`}
               >
-                Owner Dashboard
+                Bay Hub
               </button>
               <button
                 onClick={() => setActiveTab('payment')}
@@ -88,69 +101,87 @@ export const PhoneMockup: React.FC<{ interactive?: boolean }> = ({ interactive =
           {/* Screen Content Body */}
           <div className="p-4 flex-1 overflow-y-auto space-y-3">
             
-            {/* VIEW 1: BOOKING FLOW */}
+            {/* VIEW 1: CAR WASH BOOKING FLOW */}
             {activeTab === 'booking' && (
               <>
+                {/* Station Info Card */}
                 <div className="bg-white p-3.5 rounded-2xl shadow-xs border border-gray-100">
-                  <div className="flex justify-between items-start mb-2">
+                  <div className="flex justify-between items-start mb-1.5">
                     <div>
-                      <span className="text-[10px] uppercase font-bold text-[#FFA42D] tracking-wider">Nearby Premier Salon</span>
-                      <h4 className="font-bold text-slate-900 text-xs mt-0.5">Elegance Barbershop & Spa</h4>
+                      <span className="text-[10px] uppercase font-bold text-[#FFA42D] tracking-wider flex items-center gap-1">
+                        <MapPin className="w-3 h-3" /> Premier Auto Spa & Wash Bay
+                      </span>
+                      <h4 className="font-bold text-slate-900 text-xs mt-0.5">CrystalClean Auto Spa</h4>
                     </div>
                     <div className="flex items-center gap-1 bg-amber-50 px-1.5 py-0.5 rounded text-[10px] text-amber-700 font-bold">
                       <Star className="w-3 h-3 fill-amber-400 text-amber-500" />
-                      <span>4.9 (184)</span>
+                      <span>4.9 (342)</span>
                     </div>
                   </div>
-                  <p className="text-[10px] text-gray-500">Elelenwo, Port Harcourt • 0.8 km</p>
+                  <p className="text-[10px] text-gray-500">Peter Odili Road, Port Harcourt • 1.2 km away</p>
+
+                  {/* Vehicle Type Pills */}
+                  <div className="pt-2 flex items-center gap-1.5">
+                    <span className="text-[9px] font-semibold text-gray-400">Vehicle:</span>
+                    <span className="px-2 py-0.5 rounded bg-gray-100 text-gray-700 font-medium text-[9px]">Sedan</span>
+                    <span className="px-2 py-0.5 rounded bg-[#0F172A] text-white font-bold text-[9px] shadow-2xs">SUV / Jeep ✓</span>
+                    <span className="px-2 py-0.5 rounded bg-gray-100 text-gray-700 font-medium text-[9px]">Pickup</span>
+                  </div>
                 </div>
 
-                {/* Service Selection */}
+                {/* Wash Package Selection */}
                 <div className="space-y-2">
-                  <span className="text-[11px] font-bold text-gray-700">Choose Service</span>
+                  <span className="text-[11px] font-bold text-gray-700 flex items-center justify-between">
+                    <span>Select Wash Package</span>
+                    <span className="text-[9px] text-[#D97706] font-semibold">High-Gloss Foam Tech</span>
+                  </span>
                   
+                  {/* Selected Package */}
                   <div className="p-2.5 rounded-xl bg-white border border-[#FFA42D] shadow-xs flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-lg bg-orange-100 flex items-center justify-center text-orange-700">
-                        <Scissors className="w-3.5 h-3.5" />
+                      <div className="w-7 h-7 rounded-lg bg-orange-100 flex items-center justify-center text-orange-700">
+                        <Droplets className="w-4 h-4 text-[#D97706]" />
                       </div>
                       <div>
-                        <p className="font-bold text-[11px] text-gray-900">Executive Haircut & Beard Grooming</p>
-                        <p className="text-[10px] text-gray-500">45 mins • Includes steam treatment</p>
+                        <p className="font-bold text-[11px] text-gray-900">Supreme Foam & Interior Detail</p>
+                        <p className="text-[10px] text-gray-500">45 mins • Underbody spray + wax polish</p>
                       </div>
                     </div>
-                    <span className="font-bold text-[11px] text-[#D97706]">₦ 7,500</span>
+                    <span className="font-bold text-[11px] text-[#D97706]">₦ 8,500</span>
                   </div>
 
+                  {/* Alternative Package */}
                   <div className="p-2.5 rounded-xl bg-white border border-gray-200 flex items-center justify-between opacity-80">
                     <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600">
+                      <div className="w-7 h-7 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600">
                         <Sparkles className="w-3.5 h-3.5" />
                       </div>
                       <div>
-                        <p className="font-semibold text-[11px] text-gray-800">Luxury Facial Care & Scrub</p>
-                        <p className="text-[10px] text-gray-500">30 mins</p>
+                        <p className="font-semibold text-[11px] text-gray-800">Express Body Wash & Vacuum</p>
+                        <p className="text-[10px] text-gray-500">25 mins • Touchless shampoo & tire shine</p>
                       </div>
                     </div>
-                    <span className="font-semibold text-[11px] text-gray-700">₦ 12,000</span>
+                    <span className="font-semibold text-[11px] text-gray-700">₦ 4,500</span>
                   </div>
                 </div>
 
-                {/* Date & Time Selector */}
+                {/* Wash Bay Slot Selector */}
                 <div className="bg-white p-3 rounded-2xl border border-gray-100 space-y-2">
                   <div className="flex items-center justify-between text-[11px] font-bold text-gray-800">
-                    <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5 text-[#FFA42D]" /> Selected Slot</span>
-                    <span className="text-emerald-600 font-semibold text-[10px]">No Waiting Queue</span>
+                    <span className="flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5 text-[#FFA42D]" /> Dedicated Wash Bay
+                    </span>
+                    <span className="text-emerald-600 font-semibold text-[10px]">No Queue Waiting</span>
                   </div>
                   <div className="grid grid-cols-3 gap-1.5 pt-1">
                     <div className="p-1.5 text-center bg-gray-50 rounded-lg border border-gray-200 text-gray-500 text-[10px]">
-                      11:00 AM
+                      Bay 1 • 11:30 AM
                     </div>
                     <div className="p-1.5 text-center bg-[#FFA42D] text-black font-bold rounded-lg shadow-2xs text-[10px]">
-                      01:30 PM ✓
+                      Bay 2 • 02:00 PM ✓
                     </div>
                     <div className="p-1.5 text-center bg-gray-50 rounded-lg border border-gray-200 text-gray-500 text-[10px]">
-                      03:00 PM
+                      Bay 3 • 03:30 PM
                     </div>
                   </div>
                 </div>
@@ -159,90 +190,92 @@ export const PhoneMockup: React.FC<{ interactive?: boolean }> = ({ interactive =
                 <div className="pt-1">
                   <div className="w-full py-2.5 rounded-xl bg-[#0F172A] text-white font-bold text-center flex items-center justify-center gap-2 shadow-sm">
                     <CheckCircle className="w-3.5 h-3.5 text-[#FFA42D]" />
-                    <span>Confirm Booking (Instant Alert)</span>
+                    <span>Reserve Wash Bay (Instant Ticket)</span>
                   </div>
                 </div>
               </>
             )}
 
-            {/* VIEW 2: SALON OWNER DASHBOARD */}
+            {/* VIEW 2: CAR WASH OPERATOR / BAY DASHBOARD */}
             {activeTab === 'dashboard' && (
               <>
                 <div className="p-3 bg-gradient-to-br from-gray-900 to-gray-800 text-white rounded-2xl space-y-2 shadow-xs">
                   <div className="flex justify-between items-center">
-                    <span className="text-[10px] text-gray-300 font-medium">Today's Salon Revenue</span>
+                    <span className="text-[10px] text-gray-300 font-medium">Today's Car Wash Revenue</span>
                     <span className="text-[9px] bg-[#FFA42D] text-black font-bold px-2 py-0.5 rounded-full">Live Synced</span>
                   </div>
                   <div className="text-lg font-black text-[#FFA42D] font-display">
-                    ₦ 248,500
+                    ₦ 318,500
                   </div>
                   <div className="grid grid-cols-2 gap-2 pt-1 border-t border-gray-700/60 text-[10px]">
                     <div>
-                      <span className="text-gray-400">Total Bookings:</span>
-                      <p className="font-bold text-white">28 Clients</p>
+                      <span className="text-gray-400">Total Washes:</span>
+                      <p className="font-bold text-white">42 Vehicles Today</p>
                     </div>
                     <div>
-                      <span className="text-gray-400">Walk-in vs App:</span>
-                      <p className="font-bold text-[#FFA42D]">85% App Reserved</p>
+                      <span className="text-gray-400">Average Bay Time:</span>
+                      <p className="font-bold text-[#FFA42D]">26 Mins / Car</p>
                     </div>
                   </div>
                 </div>
 
-                {/* Real-time schedule queue */}
+                {/* Real-time wash bay status */}
                 <div className="bg-white p-3 rounded-2xl border border-gray-100 space-y-2">
                   <div className="flex justify-between items-center">
                     <span className="font-bold text-[11px] text-gray-900 flex items-center gap-1">
-                      <Clock className="w-3.5 h-3.5 text-[#FFA42D]" /> Upcoming Today
+                      <Gauge className="w-3.5 h-3.5 text-[#FFA42D]" /> Live Wash Bay Queue
                     </span>
-                    <span className="text-[10px] text-gray-500">4 Stylists Active</span>
+                    <span className="text-[10px] text-gray-500">4 Active Bays</span>
                   </div>
 
                   <div className="space-y-1.5">
+                    {/* Active Car 1 */}
                     <div className="p-2 rounded-lg bg-orange-50/70 border border-orange-200/80 flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <div className="w-7 h-7 rounded-full bg-[#FFA42D] text-black font-bold flex items-center justify-center text-[10px]">
-                          TJ
+                        <div className="w-7 h-7 rounded-lg bg-[#FFA42D] text-black font-bold flex items-center justify-center text-[10px]">
+                          <Car className="w-4 h-4" />
                         </div>
                         <div>
-                          <p className="font-bold text-gray-900 text-[10px]">Taribo Johnson</p>
-                          <p className="text-[9px] text-gray-500">1:30 PM • Stylist: Chidi</p>
+                          <p className="font-bold text-gray-900 text-[10px]">Range Rover Velar (PH-921)</p>
+                          <p className="text-[9px] text-gray-500">Bay 1 • Interior Steam & Polish</p>
                         </div>
                       </div>
-                      <span className="text-[9px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold">Online Paid</span>
+                      <span className="text-[9px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold">Washing (80%)</span>
                     </div>
 
+                    {/* Active Car 2 */}
                     <div className="p-2 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <div className="w-7 h-7 rounded-full bg-gray-200 text-gray-700 font-bold flex items-center justify-center text-[10px]">
-                          AM
+                        <div className="w-7 h-7 rounded-lg bg-gray-200 text-gray-700 font-bold flex items-center justify-center text-[10px]">
+                          <Car className="w-4 h-4" />
                         </div>
                         <div>
-                          <p className="font-bold text-gray-900 text-[10px]">Amaka Madu</p>
-                          <p className="text-[9px] text-gray-500">2:15 PM • Stylist: Blessing</p>
+                          <p className="font-bold text-gray-900 text-[10px]">Toyota Camry (ABJ-304)</p>
+                          <p className="text-[9px] text-gray-500">Bay 2 • Next in Line (02:00 PM)</p>
                         </div>
                       </div>
-                      <span className="text-[9px] px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold">Cash at Salon</span>
+                      <span className="text-[9px] px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold">Arrived</span>
                     </div>
                   </div>
                 </div>
 
                 <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-[10px] text-emerald-800 flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Zero Overcrowding: All time slots strictly paced</span>
+                  <span>Smart Automated Scheduling: Zero bay congestion</span>
                 </div>
               </>
             )}
 
-            {/* VIEW 3: DIGITAL PAYMENT */}
+            {/* VIEW 3: DIGITAL PAYMENT & TRACKING */}
             {activeTab === 'payment' && (
               <>
                 <div className="bg-white p-3.5 rounded-2xl border border-gray-100 space-y-3">
                   <div className="flex items-center gap-2 text-slate-900 font-bold text-xs">
                     <CreditCard className="w-4 h-4 text-[#FFA42D]" />
-                    <span>Payment Flexibility</span>
+                    <span>Payment & Automated Bay Pass</span>
                   </div>
                   <p className="text-[10px] text-gray-500 leading-relaxed">
-                    Pay securely online before the appointment or pay with cash at the salon. Every transaction is digitally logged.
+                    Pay online to get an automated gate QR code pass or settle via POS/cash on arrival at the auto spa.
                   </p>
 
                   <div className="space-y-2 pt-1">
@@ -252,8 +285,8 @@ export const PhoneMockup: React.FC<{ interactive?: boolean }> = ({ interactive =
                           ✓
                         </div>
                         <div>
-                          <p className="font-bold text-[11px] text-gray-900">Pay Online (Card / Transfer / USSD)</p>
-                          <p className="text-[9px] text-gray-500">Instant verification & reserved seat</p>
+                          <p className="font-bold text-[11px] text-gray-900">Pay Online (Card / Instant Transfer)</p>
+                          <p className="text-[9px] text-gray-500">Instant Bay QR code & priority entry</p>
                         </div>
                       </div>
                     </div>
@@ -264,8 +297,8 @@ export const PhoneMockup: React.FC<{ interactive?: boolean }> = ({ interactive =
                           •
                         </div>
                         <div>
-                          <p className="font-medium text-[11px] text-gray-800">Pay With Cash At Salon</p>
-                          <p className="text-[9px] text-gray-500">Recorded digitally in salon books</p>
+                          <p className="font-medium text-[11px] text-gray-800">Pay at Wash Bay Counter (Cash / POS)</p>
+                          <p className="text-[9px] text-gray-500">Logged digitally to operator system</p>
                         </div>
                       </div>
                     </div>
@@ -274,11 +307,11 @@ export const PhoneMockup: React.FC<{ interactive?: boolean }> = ({ interactive =
 
                 <div className="bg-[#0F172A] text-white p-3 rounded-2xl space-y-2">
                   <div className="flex justify-between text-[10px]">
-                    <span className="text-gray-400">Total Due</span>
-                    <span className="font-bold text-white text-xs">₦ 7,500</span>
+                    <span className="text-gray-400">Total Wash Fee (SUV Package)</span>
+                    <span className="font-bold text-white text-xs">₦ 8,500</span>
                   </div>
-                  <div className="w-full py-2 bg-[#FFA42D] text-black font-bold text-center rounded-lg text-[11px]">
-                    Authorize & Secure Slot
+                  <div className="w-full py-2 bg-[#FFA42D] text-black font-bold text-center rounded-lg text-[11px] cursor-pointer">
+                    Authorize & Generate Bay Ticket
                   </div>
                   <div className="text-[9px] text-center text-gray-400 flex items-center justify-center gap-1">
                     <ShieldCheck className="w-3 h-3 text-[#FFA42D]" /> 256-Bit Bank Grade Encryption
@@ -292,8 +325,8 @@ export const PhoneMockup: React.FC<{ interactive?: boolean }> = ({ interactive =
           {/* Bottom App Navigation */}
           <div className="bg-white border-t border-gray-100 px-6 py-2.5 flex justify-between items-center text-gray-400">
             <div className="flex flex-col items-center gap-0.5 text-[#FFA42D]">
-              <Scissors className="w-4 h-4" />
-              <span className="text-[8px] font-bold">Salons</span>
+              <Car className="w-4 h-4" />
+              <span className="text-[8px] font-bold">Wash Bays</span>
             </div>
             <div className="flex flex-col items-center gap-0.5">
               <Calendar className="w-4 h-4" />
@@ -305,7 +338,7 @@ export const PhoneMockup: React.FC<{ interactive?: boolean }> = ({ interactive =
             </div>
             <div className="flex flex-col items-center gap-0.5">
               <User className="w-4 h-4" />
-              <span className="text-[8px]">Account</span>
+              <span className="text-[8px]">Profile</span>
             </div>
           </div>
 
@@ -319,3 +352,4 @@ export const PhoneMockup: React.FC<{ interactive?: boolean }> = ({ interactive =
     </div>
   );
 };
+

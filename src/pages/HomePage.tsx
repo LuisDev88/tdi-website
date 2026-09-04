@@ -17,7 +17,9 @@ import {
   Layers,
   Code2,
   HeartHandshake,
-  HeadphonesIcon
+  HeadphonesIcon,
+  Car,
+  Droplets
 } from 'lucide-react';
 
 interface HomePageProps {
@@ -112,23 +114,23 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   
                   {/* Floating Tech Badge 1 */}
                   <div className="absolute -bottom-4 -left-4 sm:bottom-6 sm:-left-8 bg-white p-3 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-3 hidden sm:flex">
-                    <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center text-[#FFA42D]">
-                      <Smartphone className="w-5 h-5" />
+                    <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center text-[#D97706]">
+                      <Car className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-gray-900">Custom Mobile Apps</p>
-                      <p className="text-[11px] text-gray-500">Fast, Scalable, Secure</p>
+                      <p className="text-xs font-bold text-gray-900">AutoWash Mobile Solution</p>
+                      <p className="text-[11px] text-gray-500">Bay Booking & Live Queue</p>
                     </div>
                   </div>
 
                   {/* Floating Tech Badge 2 */}
                   <div className="absolute top-8 -right-4 sm:-right-6 bg-white p-3 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-3 hidden sm:flex">
                     <div className="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center text-[#FFA42D]">
-                      <Sparkles className="w-5 h-5" />
+                      <Droplets className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-gray-900">Enterprise Apps</p>
-                      <p className="text-[11px] text-emerald-600 font-semibold">Scalable, Fast & Secure</p>
+                      <p className="text-xs font-bold text-gray-900">Smart Detailing Hub</p>
+                      <p className="text-[11px] text-emerald-600 font-semibold">Live Bays & Instant Pay</p>
                     </div>
                   </div>
                 </div>
