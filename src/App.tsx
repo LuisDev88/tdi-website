@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { PageId } from './types';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
+import { Preloader } from './components/Preloader';
 import { HomePage } from './pages/HomePage';
 import { AboutUsPage } from './pages/AboutUsPage';
 import { ServicesPage } from './pages/ServicesPage';
@@ -75,24 +77,38 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#0F172A] font-sans antialiased selection:bg-[#FFA42D] selection:text-black">
+      {/* Site Loading Screen / Preloader with Logo */}
+      <Preloader />
+
       {/* Sticky Header & Navigation */}
       <Navbar currentPage={currentPage} onNavigate={handleNavigate} />
 
-      {/* Main Routed Page Content */}
-      <main className="flex-1 w-full flex flex-col">
-        {currentPage === 'home' && <HomePage onNavigate={handleNavigate} />}
-        {currentPage === 'about-us' && <AboutUsPage onNavigate={handleNavigate} />}
-        {currentPage === 'services' && <ServicesPage onNavigate={handleNavigate} />}
-        {currentPage === 'products' && <ProductsPage onNavigate={handleNavigate} />}
-        {currentPage === 'careers' && <CareersPage onNavigate={handleNavigate} />}
-        {currentPage === 'contact-us' && (
-          <ContactUsPage 
-            onNavigate={handleNavigate} 
-            prefilledService={prefilledService} 
-          />
-        )}
-        {currentPage === 'privacy-policy' && <PrivacyPolicyPage onNavigate={handleNavigate} />}
-        {currentPage === 'terms-conditions' && <TermsConditionsPage onNavigate={handleNavigate} />}
+      {/* Main Routed Page Content with Slick Page Transition */}
+      <main className="flex-1 w-full flex flex-col overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentPage}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.24, ease: [0.25, 0.1, 0.25, 1] }}
+            className="w-full flex-1 flex flex-col"
+          >
+            {currentPage === 'home' && <HomePage onNavigate={handleNavigate} />}
+            {currentPage === 'about-us' && <AboutUsPage onNavigate={handleNavigate} />}
+            {currentPage === 'services' && <ServicesPage onNavigate={handleNavigate} />}
+            {currentPage === 'products' && <ProductsPage onNavigate={handleNavigate} />}
+            {currentPage === 'careers' && <CareersPage onNavigate={handleNavigate} />}
+            {currentPage === 'contact-us' && (
+              <ContactUsPage 
+                onNavigate={handleNavigate} 
+                prefilledService={prefilledService} 
+              />
+            )}
+            {currentPage === 'privacy-policy' && <PrivacyPolicyPage onNavigate={handleNavigate} />}
+            {currentPage === 'terms-conditions' && <TermsConditionsPage onNavigate={handleNavigate} />}
+          </motion.div>
+        </AnimatePresence>
       </main>
 
       {/* Persistent Global Footer */}
@@ -101,15 +117,23 @@ export default function App() {
       {/* Floating Action Buttons: WhatsApp & Back-To-Top */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
         {/* Scroll To Top button */}
-        {showBackToTop && (
-          <button
-            onClick={scrollToTop}
-            aria-label="Scroll to top"
-            className="w-10 h-10 rounded-full bg-white/90 border border-gray-300 text-gray-700 hover:text-black hover:bg-white shadow-md flex items-center justify-center transition-all cursor-pointer"
-          >
-            <ArrowUp className="w-4 h-4" />
-          </button>
-        )}
+        <AnimatePresence>
+          {showBackToTop && (
+            <motion.button
+              key="back-to-top"
+              initial={{ opacity: 0, scale: 0.8, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.8, y: 10 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={scrollToTop}
+              aria-label="Scroll to top"
+              className="w-10 h-10 rounded-full bg-white/95 border border-gray-300 text-gray-700 hover:text-black hover:bg-white shadow-md flex items-center justify-center transition-colors cursor-pointer"
+            >
+              <ArrowUp className="w-4 h-4" />
+            </motion.button>
+          )}
+        </AnimatePresence>
 
         {/* WhatsApp Quick Inquiries Float */}
         <a
