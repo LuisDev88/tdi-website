@@ -1,0 +1,8 @@
+{
+  "name": "Tech-Dhab International App",
+  "description": "Tech-Dhab International is a software development company specializing in mobile applications, custom software, UI/UX design, business automation, software maintenance, and technology consulting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

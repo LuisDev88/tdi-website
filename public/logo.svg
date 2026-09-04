@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%" fill="none">
+  <!-- Tech-Dhab International Official Logo -->
+  <rect width="400" height="400" rx="32" fill="#FFFFFF"/>
+  
+  <g transform="translate(48, 60)">
+    <!-- Monogram TDI -->
+    <!-- Orange T & D -->
+    <path d="M 0,26 L 155,26 C 215,26 245,62 245,116 C 245,170 215,206 155,206 L 90,206 L 90,140 L 122,140 C 145,140 162,130 162,116 C 162,102 145,92 122,92 L 90,92 L 90,206 L 36,206 L 36,58 L 0,58 Z" fill="#FFA42D" />
+    
+    <!-- Cutout inside D -->
+    <path d="M 122,92 C 145,92 162,102 162,116 C 162,130 145,140 122,140 L 90,140 L 90,92 Z" fill="#FFFFFF" />
+
+    <!-- Pure T-D connected shape per brand logo -->
+    <path d="M 0,26 H 145 C 205,26 242,62 242,116 C 242,170 205,206 145,206 H 92 V 144 H 124 C 148,144 165,133 165,116 C 165,99 148,88 124,88 H 92 V 206 H 40 V 58 H 0 Z" fill="#FFA42D" />
+    <path d="M 92,88 H 124 C 148,88 165,99 165,116 C 165,133 148,144 124,144 H 92 Z" fill="#FFFFFF" />
+
+    <!-- Black I bar -->
+    <rect x="265" y="26" width="30" height="180" rx="0" fill="#111827" />
+  </g>
+
+  <!-- Typography -->
+  <text x="200" y="304" text-anchor="middle" fill="#111827" font-family="'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="38" letter-spacing="2">TECHDHAB</text>
+  <text x="200" y="338" text-anchor="middle" fill="#111827" font-family="'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif" font-weight="700" font-size="15" letter-spacing="7.5">INTERNATIONAL</text>
+</svg>
