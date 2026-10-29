@@ -6,7 +6,7 @@ import { defineConfig } from 'vite';
 export default defineConfig(() => {
   return {
     // GitHub Pages serves this project from /tdi-website/
-    base: '/tdi-website/',
+    base: '/',
 
     plugins: [react(), tailwindcss()],
 
